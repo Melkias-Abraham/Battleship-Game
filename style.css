@@ -2,6 +2,7 @@
   display: flex;
 }
 
+/* GRIDS  */
 .grid-user {
   width: 400px;
   height: 400px;
@@ -31,9 +32,50 @@
   background-color: yellow;
 }
 
+/* SHIPS */
 .destroyer-container {
   width: 80px;
   height: 40px;
   margin: 10px;
   background-color: violet;
+  display: flex;
 }
+
+.ship div {
+  width: 40px;
+  height: 40px;
+}
+
+.submarine-container {
+  width: 120px;
+  height: 40px;
+  margin: 10px;
+  background-color: palevioletred;
+  display: flex;
+}
+
+.cruiser-container {
+  width: 120px;
+  height: 40px;
+  margin: 10px;
+  background-color: red;
+  display: flex;
+}
+
+.battleship-container {
+  width: 160px;
+  height: 40px;
+  margin: 10px;
+  background-color: palevioletred;
+  display: flex;
+}
+
+.carrier-container {
+  width: 200px;
+  height: 40px;
+  margin: 10px;
+  background-color: green;
+  display: flex;
+}
+
+
