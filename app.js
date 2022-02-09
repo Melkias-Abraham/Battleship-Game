@@ -72,4 +72,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   ]
   
+  function generate() {
+    let randomDirection = Math.floor(Math.random() * ship.directions.length)
+    let current = ship.directions[randomDirection]
+
+    if (randomDirection === 0) direction = 1
+    if (randomDirection === 1) direction = 10
+
+    let randomStart = Math.floor(Math.random() * computerSquares.length - (ship.directions[0].length * direction))
+
+    const isTaken = current.some(index => computerSquare[randomStart + index].classList.contains('taken'))
+  }
 });
