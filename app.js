@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  
+
   const userGrid = document.querySelector(".grid-user");
   const computerGrid = document.querySelector(".grid-computer");
   const displayGrid = document.querySelector(".grid-display");
@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const infoDisplay = document.querySelector('#game-info')
   
   // Creating the board
-  const userSquare = [];
-  const computerSquare = [];
+  const userSquares = [];
+  const computerSquares = [];
   const width = 10
 
   function createBoard(grid, squares, width) {
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  createBoard(userGrid, userSquare);
-  createBoard(computerGrid, computerSquare);
+  createBoard(userGrid, userSquares, width);
+  createBoard(computerGrid, computerSquares, width );
 
   const shipArray = [
     {
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   ]
   
-  function generate() {
+  function generate(ship) {
     let randomDirection = Math.floor(Math.random() * ship.directions.length)
     let current = ship.directions[randomDirection]
 
@@ -81,14 +81,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let randomStart = Math.floor(Math.random() * computerSquares.length - (ship.directions[0].length * direction))
 
-    const isTaken = current.some(index => computerSquare[randomStart + index].classList.contains('taken'))
+    const isTaken = current.some(index => computerSquares[randomStart + index].classList.contains('taken'))
     const rightEdgeCheck = current.some(index => (randomStart + index) % width === width -1 )
     const leftEdgeCheck = current.some(index => (randomStart + index) % width === 0)
 
-    if (!isTaken && !rightEdgeCheck && leftEdgeCheck) {
-      current.forEach(index =>  computerSquare[randomStart + index].classList.add('taken', ship.name))
+    if (!isTaken && !rightEdgeCheck && !leftEdgeCheck) {
+      current.forEach(index =>  computerSquares[randomStart + index].classList.add('taken', ship.name))
     } else {
       generate(ship)
     }
   }
+
+  generate(shipArray[0])
 });
