@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         name: 'carrier',
         directions: [
-          [0, 1, 2, 3, 5],
+          [0, 1, 2, 3, 4],
           [0, width, width*2, width*3, width*4]
         ]
       }
@@ -82,5 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let randomStart = Math.floor(Math.random() * computerSquares.length - (ship.directions[0].length * direction))
 
     const isTaken = current.some(index => computerSquare[randomStart + index].classList.contains('taken'))
+    const rightEdgeCheck = current.some(index => (randomStart + index) % width === width -1 )
+    const leftEdgeCheck = current.some(index => (randomStart + index) % width === 0)
+
+    if (!isTaken && !rightEdgeCheck && leftEdgeCheck) {
+      current.forEach(index =>  computerSquare[randomStart + index].classList.add('taken', ship.name))
+    } else {
+      generate(ship)
+    }
   }
 });
