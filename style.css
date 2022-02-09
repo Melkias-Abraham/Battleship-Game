@@ -50,7 +50,7 @@
   width: 120px;
   height: 40px;
   margin: 10px;
-  background-color: palevioletred;
+  background-color: lightgoldenrodyellow;
   display: flex;
 }
 
@@ -58,7 +58,7 @@
   width: 120px;
   height: 40px;
   margin: 10px;
-  background-color: red;
+  background-color: teal;
   display: flex;
 }
 
@@ -79,7 +79,23 @@
 }
 
 .destroyer {
-  background-color:orange;
+  background-color:violet;
+}
+
+.cruiser {
+  background-color: teal;
+}
+
+.battleship {
+  background-color:  palevioletred;
+}
+
+.submarine {
+  background-color: lightgoldenrodyellow;
+}
+
+.carrier {
+  background-color: green;
 }
 
 
