@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const rightEdgeCheck = current.some(index => (randomStart + index) % width === width - 1)
     const leftEdgeCheck = current.some(index => (randomStart + index) % width === 0)
 
-    if (!isTaken && ((rightEdgeCheck && !leftEdgeCheck) || (!rightEdgeCheck && leftEdgeCheck))) {
+    if (!isTaken && ((rightEdgeCheck && !leftEdgeCheck) || (!rightEdgeCheck && leftEdgeCheck) || (!rightEdgeCheck && !leftEdgeCheck))) {
       current.forEach(index =>  computerSquares[randomStart + index].classList.add('taken', ship.name))
     } else {
       generate(ship)
