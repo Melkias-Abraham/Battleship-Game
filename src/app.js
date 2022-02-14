@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const rotateButton = document.querySelector('#rotate')
   const turnDisplay = document.querySelector('#whose-turn')
   const infoDisplay = document.querySelector('#game-info')
+
+  // ship alignment
+  let isHorizontal = true
   
   // Creating the board
   const userSquares = [];
@@ -96,4 +99,13 @@ document.addEventListener("DOMContentLoaded", () => {
   generate(shipArray[2])
   generate(shipArray[3])
   generate(shipArray[4])
+
+  // rotating ship button
+
+  function rotate() {
+    if (isHorizontal) {
+      destroyer.classList.toggle('destryoer-container-vertical')
+
+    }
+  }
 });
