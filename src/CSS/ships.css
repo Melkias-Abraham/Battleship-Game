@@ -12,6 +12,7 @@
   margin: 10px;
   background-color: violet;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .ship div {

@@ -104,8 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function rotate() {
     if (isHorizontal) {
-      destroyer.classList.toggle('destryoer-container-vertical')
-
+      destroyer.classList.toggle('destroyer-container-vertical')
+      isHorizontal = false
+    }
+    if(!isHorizontal) {
+      destroyer.classList.toggle('destroyer-container')
+      isHorizontal = true
     }
   }
+  rotateButton.addEventListener('click', rotate)
 });
