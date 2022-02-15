@@ -171,7 +171,12 @@ document.addEventListener("DOMContentLoaded", () => {
     selectedShipIndex = parseInt(selectedShipNameWithIndex.substr(- 1))
    
     shipLastId = shipLastId - selectedShipIndex 
-    console.log(shipLastId)
+    
+    if (isHorizontal) {
+      for (let i = 0; i < draggedShipLength; i++) {
+        userSquares[parseInt(this.dataset.id) - selectedShipIndex + i].classList.add('taken', shipClass)
+      }
+    }
 
   }
 
