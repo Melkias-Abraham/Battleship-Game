@@ -107,15 +107,18 @@ document.addEventListener("DOMContentLoaded", () => {
       destroyer.classList.toggle('destroyer-container-vertical')
       submarine.classList.toggle('submarine-container-vertical')
       battleship.classList.toggle('battleship-container-vertical')
+      cruiser.classList.toggle('cruiser-container-vertical')
+      carrier.classList.toggle('carrier-container-vertical')
+
       isHorizontal = false
       return
     }
     if (!isHorizontal) {
       destroyer.classList.toggle('destroyer-container')
       submarine.classList.toggle('submarine-container')
-      // cruiser.classList.toggle('cruiser-container')
-      // battleship.classList.toggle('battleship-container')
-      // carrier.classList.toggle('carrier-container')
+      cruiser.classList.toggle('cruiser-container')
+      battleship.classList.toggle('battleship-container')
+      carrier.classList.toggle('carrier-container')
       isHorizontal = true
       return
     }
