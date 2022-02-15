@@ -109,19 +109,33 @@ document.addEventListener("DOMContentLoaded", () => {
       battleship.classList.toggle('battleship-container-vertical')
       cruiser.classList.toggle('cruiser-container-vertical')
       carrier.classList.toggle('carrier-container-vertical')
-
       isHorizontal = false
       return
     }
     if (!isHorizontal) {
-      destroyer.classList.toggle('destroyer-container')
-      submarine.classList.toggle('submarine-container')
-      cruiser.classList.toggle('cruiser-container')
-      battleship.classList.toggle('battleship-container')
-      carrier.classList.toggle('carrier-container')
+      destroyer.classList.toggle('destroyer-container-vertical')
+      submarine.classList.toggle('submarine-container-vertical')
+      cruiser.classList.toggle('cruiser-container-vertical')
+      battleship.classList.toggle('battleship-container-vertical')
+      carrier.classList.toggle('carrier-container-vertical')
       isHorizontal = true
       return
     }
   }
+
   rotateButton.addEventListener('click', rotate)
+
+  // move around user ships
+  ships.forEach(ship => ship.addEventListener('dragstart', dragStart))
+  userSquares.forEach(square => square.addEventListener('dragstart', dragStart))
+  userSquares.forEach(square => square.addEventListener('dragover', dragOver))
+  userSquares.forEach(square => square.addEventListener('dragenter', dragEnter))
+  userSquares.forEach(square => square.addEventListener('dragleave', dragLeave))
+  userSquares.forEach(square => square.addEventListener('drop', dragDrop))
+  userSquares.forEach(square => square.addEventListener('dragend', dragEnd))
+
+  function dragStart() {
+    
+  }
+
 });
