@@ -137,17 +137,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   let selectedShipNameWithIndex
+  let draggedShip
+  let draggedShipLength
 
   ships.forEach(ship => ship.addEventListener('mousedown', (e) => {
     selectedShipNameWithIndex = e.target.id
   }))
 
-  function dragStart(e) {
-    console.log(e.target)
+  function dragStart() {
+    draggedShip = this
+    draggedShipLength = draggedShip.length
+    console.log(draggedShip)
   }
 
-  // function dragOver() {
-    
-  // }
+  function dragOver(e) {
+    e.preventDefault()
+  }
+
+  function dragEnter(e) {
+    e.preventDefault()
+  }
+
+  function dragLeave() {
+    console.log('drag leave')
+  }
+
+  function dragDrop() {
+    let shipNameWithLastId = draggedShip.lastChild.id
+    let shipClass = shipNameWithLastId.slice(0, -2)
+    console.log(shipClass)
+
+  }
+
+  function dragEnd() {
+
+  }
 
 });
