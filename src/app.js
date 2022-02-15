@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } 
     } else if (!isHorizontal) {
       for (let i = 0; i < draggedShipLength; i++) {
-      userSquares[parseInt(this.dataset.id) - selectedShipIndex + width * i].classList.add('taken', shipClass)
+      userSquares[parseInt(this.dataset.id) - selectedShipIndex + (width * i)].classList.add('taken', shipClass)
       }
     } else return 
 
