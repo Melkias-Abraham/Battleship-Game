@@ -165,8 +165,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function dragDrop() {
     let shipNameWithLastId = draggedShip.lastChild.id
     let shipClass = shipNameWithLastId.slice(0, -2)
-    console.log(shipClass)
+    console.log(shipClass, shipNameWithLastId)
     let lastShipIndex = parseInt(shipNameWithLastId.substring(-1))
+    let shipLastId = lastShipIndex + parseInt(this.dataset.id)
+    selectedShipIndex = parseInt(selectedShipNameWithIndex.substr(- 1))
+    console.log(selectedShipIndex)
 
   }
 
