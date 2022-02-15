@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
   rotateButton.addEventListener('click', rotate)
 
   // move around user ships
+
   ships.forEach(ship => ship.addEventListener('dragstart', dragStart))
   userSquares.forEach(square => square.addEventListener('dragstart', dragStart))
   userSquares.forEach(square => square.addEventListener('dragover', dragOver))
@@ -134,8 +135,19 @@ document.addEventListener("DOMContentLoaded", () => {
   userSquares.forEach(square => square.addEventListener('drop', dragDrop))
   userSquares.forEach(square => square.addEventListener('dragend', dragEnd))
 
-  function dragStart() {
-    
+
+  let selectedShipNameWithIndex
+
+  ships.forEach(ship => ship.addEventListener('mousedown', (e) => {
+    selectedShipNameWithIndex = e.target.id
+  }))
+
+  function dragStart(e) {
+    console.log(e.target)
   }
+
+  // function dragOver() {
+    
+  // }
 
 });
