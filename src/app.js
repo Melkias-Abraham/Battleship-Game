@@ -177,9 +177,12 @@ document.addEventListener("DOMContentLoaded", () => {
         userSquares[parseInt(this.dataset.id) - selectedShipIndex + i].classList.add('taken', shipClass)
       } 
     } else if (!isHorizontal) {
+      for (let i = 0; i < draggedShipLength; i++) {
       userSquares[parseInt(this.dataset.id) - selectedShipIndex + width * i].classList.add('taken', shipClass)
-    }
-    else return 
+      }
+    } else return 
+
+    displayGrid.removeChild(draggedShip)
 
   }
 
