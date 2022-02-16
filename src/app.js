@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   let cpuDestroyerCount = 0
-  let cupSubmarineCount = 0
+  let cpuSubmarineCount = 0
   let cpuCruiserCount = 0
   let cpuBattleshipCount = 0
   let cpuCarrierCount = 0
@@ -260,6 +260,33 @@ document.addEventListener("DOMContentLoaded", () => {
     } else computerTurn()
     currentPlayer = 'user'
     turnDisplay.innerHTML = 'Your Turn'
+    }
+
+    function checkForWins() {
+      if (destroyerCount === 2) {
+        infoDisplay.innerHTML = 'You sunk the computers destroyer!'
+        destroyerCount = 10
+      }
+
+      if (submarineCount === 3) {
+        infoDisplay.innerHTML = 'You sunk the computers submarine!'
+        submarineCount = 10
+      }
+
+      if (cruiserCount === 3) {
+        infoDisplay.innerHTML = 'You sunk the computers crusier!'
+        cruiserCount = 10
+      }
+
+      if (battleshipCount === 4) {
+        infoDisplay.innerHTML = 'You sunk the computers battleship!'
+        battleshipCount = 10
+      }
+
+      if (carrierCount === 5) {
+        infoDisplay.innerHTML = 'You sunk the computers carrier!'
+        carrierCount = 10
+      }
     }
   
 
