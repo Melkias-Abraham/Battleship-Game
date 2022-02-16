@@ -211,6 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (currentPlayer === 'computer') {
       turnDisplay.innerHTML = 'CPU turn'
+      setTimeout (computerTurn, 1000)
     }
   }
   startButton.addEventListener('click', playGame)
@@ -236,6 +237,31 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       square.classList.add('miss')
     }
+    currentPlayer = 'computer'
+    playGame()
   }
 
+  let cpuDestroyerCount = 0
+  let cupSubmarineCount = 0
+  let cpuCruiserCount = 0
+  let cpuBattleshipCount = 0
+  let cpuCarrierCount = 0
+
+  function computerTurn() {
+    let random = Math.floor(Math.random() * userSquares.length)
+
+    if (!userSquares[random].classList.contains('boom')) {
+      userSquares[random].classList.add('boom')
+      if (userSquares[random].classList.contains('destroyer')) cpuDestroyerCount++
+      if (userSquares[random].classList.contains('submarine')) cpuSubmarineCount++
+      if (userSquares[random].classList.contains('cruiser')) cpuCruiserCount++
+      if (userSquares[random].classList.contains('battleship')) cpuBattleshipCount++
+      if (userSquares[random].classList.contains('carrier')) cpuCarrierCount++
+    } else computerTurn()
+    currentPlayer = 'user'
+    turnDisplay.innerHTML = 'Your Turn'
+    }
+  
+
 });
+ 
