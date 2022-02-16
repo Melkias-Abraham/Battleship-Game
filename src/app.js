@@ -222,11 +222,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let carrierCount = 0
 
   function revealSquare(square) {
-    if (square.classList.contains('destroyer')) destroyerCount++
-    if (square.classList.contains('submarine')) submarineCount++
-    if (square.classList.contains('cruiser')) cruiserCount++
-    if (square.classList.contains('battleship')) battleshipCount++
-    if (square.classList.contains('carrier')) carrierCount++
+    if (!square.classList.contains('boom')) {
+      if (square.classList.contains('destroyer')) destroyerCount++
+      if (square.classList.contains('submarine')) submarineCount++
+      if (square.classList.contains('cruiser')) cruiserCount++
+      if (square.classList.contains('battleship')) battleshipCount++
+      if (square.classList.contains('carrier')) carrierCount++
+    }
+   
 
     if (square.classList.contains('taken')) {
       square.classList.add('boom')
