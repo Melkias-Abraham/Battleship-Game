@@ -230,6 +230,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (square.classList.contains('taken')) {
       square.classList.add('boom')
+    } else {
+      square.classList.add('miss')
     }
   }
 
