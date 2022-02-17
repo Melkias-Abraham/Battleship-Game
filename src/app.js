@@ -237,6 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       square.classList.add('miss')
     }
+    checkForWins()
     currentPlayer = 'computer'
     playGame()
   }
@@ -257,7 +258,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (userSquares[random].classList.contains('cruiser')) cpuCruiserCount++
       if (userSquares[random].classList.contains('battleship')) cpuBattleshipCount++
       if (userSquares[random].classList.contains('carrier')) cpuCarrierCount++
-    } else computerTurn()
+      checkForWins()
+    } else 
+    computerTurn()
     currentPlayer = 'user'
     turnDisplay.innerHTML = 'Your Turn'
     }
@@ -287,6 +290,46 @@ document.addEventListener("DOMContentLoaded", () => {
         infoDisplay.innerHTML = 'You sunk the computers carrier!'
         carrierCount = 10
       }
+
+      if (cpuDestroyerCount === 2) {
+        infoDisplay.innerHTML = 'You sunk the computers destroyer!'
+        cpuDestroyerCount = 10
+      }
+
+      if (cpuSubmarineCount === 3) {
+        infoDisplay.innerHTML = 'You sunk the computers submarine!'
+        cpuSubmarineCount = 10
+      }
+
+      if (cpuCruiserCount === 3) {
+        infoDisplay.innerHTML = 'You sunk the computers crusier!'
+        cpuCruiserCount = 10
+      }
+
+      if (cpuBattleshipCount === 4) {
+        infoDisplay.innerHTML = 'You sunk the computers battleship!'
+        cpuBattleshipCount = 10
+      }
+
+      if (cpuCarrierCount === 5) {
+        infoDisplay.innerHTML = 'You sunk the computers carrier!'
+        cpuCarrierCount = 10
+      }
+
+      if ((destroyerCount + submarineCount + cruiserCount + battleshipCount + carrierCount) === 50) {
+        infoDisplay.innerHTML = "CPU Wins!"
+        gameOver()
+      }
+
+      if ((cpuDestroyerCount + cpuSubmarineCount + cpuCruiserCount + cpuBattleshipCount + cpuCarrierCount) === 50) {
+        infoDisplay.innerHTML = "You Win!"
+        gameOver()
+      }
+    }
+
+    function gameOver() {
+      isGameOver = true
+      startButton.removeEventListener('click', playGame)
     }
   
 
