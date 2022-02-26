@@ -1,5 +1,3 @@
-import createBoard from "./gameboard/game-setup.js"
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const userGrid = document.querySelector(".grid-user");
