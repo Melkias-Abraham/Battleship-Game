@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentPlayer = 'user'
   const socket = io()
 
-  
   const startButton = document.querySelector('#start')
   const rotateButton = document.querySelector('#rotate')
   const turnDisplay = document.querySelector('#whose-turn')
