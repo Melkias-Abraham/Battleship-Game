@@ -9,9 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const cruiser = document.querySelector(".cruiser-container");
   const battleship = document.querySelector(".battleship-container");
   const carrier = document.querySelector(".carrier-container");
-   
+  
+
   let isGameOver = false
   let currentPlayer = 'user'
+  const socket = io()
 
   
   const startButton = document.querySelector('#start')
