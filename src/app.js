@@ -10,15 +10,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const battleship = document.querySelector(".battleship-container");
   const carrier = document.querySelector(".carrier-container");
   
-
   let isGameOver = false
   let currentPlayer = 'user'
-  const socket = io()
-
   const startButton = document.querySelector('#start')
   const rotateButton = document.querySelector('#rotate')
   const turnDisplay = document.querySelector('#whose-turn')
   const infoDisplay = document.querySelector('#game-info')
+  const singlePlayerButton = document.querySelector('#singlePlayerButton')
+  const multiPlayerButton = document.querySelector('#multiPlayerButton')
+
+  // Multiplayer 
+  let gameMode = "";
+  let playerNum = 0;
+  let enemyReady = false;
+  let allShipsPlaced = false;
+  let shotFired = -1;
+
+  const socket = io()
+
+  // Get your player #
+  socket.on('player-number', num => {
+    if (num = -1) {
+      infoDisplay.innerHTML = "Sorry, the server is full"
+    } else {
+      playerNum = parseInt(num)
+      if (playerNum === 1 ) currentPlayer = "enemy"
+
+      console.log(playerNum)
+    }
+  })
+
 
   // ship alignment
   let isHorizontal = true

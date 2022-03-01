@@ -23,18 +23,19 @@ io.on('connection', socket => {
   // Find an avaliable player number
   let playerIndex = -1;
   for (const i in connections) {
-    if (connection[i] === null) {
+    if (connections[i] === null) {
       playerIndex = i
       break
     }
   }
 
-  // Ignore player 3
-  if (playerIndex === -1) return
-
+  
   // Tell the connection client what player number they are
   socket.emit('player-number', playerIndex)
-
+  
   console.log(`Player ${playerIndex} has connected`)
+  
+  // Ignore player 3
+  if (playerIndex === -1) return
 })
 
