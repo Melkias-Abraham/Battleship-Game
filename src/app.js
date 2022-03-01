@@ -46,6 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+    // Another player has connected or disconnected
+    socket.on('player-connection', num => {
+      console.log(`Player number ${num} has connected or disconnected`)
+    })
+
   }
 
   // Single Player
