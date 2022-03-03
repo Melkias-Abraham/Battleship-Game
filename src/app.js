@@ -52,12 +52,17 @@ document.addEventListener("DOMContentLoaded", () => {
       playerConnectedOrDisconnected(num);
     });
 
+    // On enemy ready
+    socket.on('enemy-ready', num => {
+      enemyReady = true
+      playerReady(num)
+      if (ready) playGameMulti(socket)
+    })
     // Ready button click
     startButton.addEventListener('click', () => {
       if (allShipsPlaced) playGameMulti(socket)
       else infoDisplay.innerHTML = "Please place all ships"
-    }
-    )
+    })
 
     function playerConnectedOrDisconnected(num) {
       let player = `.p${parseInt(num) + 1}`;
@@ -307,6 +312,15 @@ document.addEventListener("DOMContentLoaded", () => {
       socket.emit('player-ready')
       ready = true
       playerReady(playerNum)
+    }
+
+    if (enemyReady) {
+      if (currentPlayer = 'user') {
+        turnDisplay.innerHTML = 'Your Turn'
+      }
+      if (currentPLayer === 'enemy') {
+        turnDisplay.innerHTML = "Enemy's Turn"
+      }
     }
   }
 
