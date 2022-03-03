@@ -28,35 +28,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // Select Player mode
   singlePlayerButton.addEventListener("click", startSinglePlayer);
   multiPlayerButton.addEventListener("click", startMultiPlayer);
-  
+
   function startMultiPlayer() {
-    gameMode = "multiPlayer"
-    
+    gameMode = "multiPlayer";
+
     const socket = io();
 
-      // Get your player #
-  socket.on("player-number", (num) => {
-    if ((num = -1)) {
-      infoDisplay.innerHTML = "Sorry, the server is full";
-    } else {
-      playerNum = parseInt(num);
-      if (playerNum === 1) currentPlayer = "enemy";
+    // Get your player #
+    socket.on("player-number", (num) => {
+      if ((num = -1)) {
+        infoDisplay.innerHTML = "Sorry, the server is full";
+      } else {
+        playerNum = parseInt(num);
+        if (playerNum === 1) currentPlayer = "enemy";
 
-      console.log(playerNum);
-    }
-  });
+        console.log(playerNum);
+      }
+    });
 
     // Another player has connected or disconnected
-    socket.on('player-connection', num => {
-      console.log(`Player number ${num} has connected or disconnected`)
-      playerConnectedOrDisconnected(num)
-    })
+    socket.on("player-connection", (num) => {
+      console.log(`Player number ${num} has connected or disconnected`);
+      playerConnectedOrDisconnected(num);
+    });
 
     function playerConnectedOrDisconnected(num) {
-      let player = `.p${parseInt(num) + 1}`
-      document.querySelector(`${player} .connected span`).classList.toggle('green')
+      let player = `.p${parseInt(num) + 1}`;
+      document
+        .querySelector(`${player} .connected span`)
+        .classList.toggle("green");
+      if (parseInt(num) === playerNum)
+        document.querySelector(player).style.fontWeight = "bold";
     }
-
   }
 
   // Single Player
