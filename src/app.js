@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Get your player #
     socket.on("player-number", (num) => {
-      if ((num = -1)) {
+      if (num === -1) {
         infoDisplay.innerHTML = "Sorry, the server is full";
       } else {
         playerNum = parseInt(num);
@@ -51,6 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(`Player number ${num} has connected or disconnected`);
       playerConnectedOrDisconnected(num);
     });
+
+    // Ready button click
+    startButton.addEventListener('click', () => {
+      playGameMulti(socket) 
+    }
+    )
 
     function playerConnectedOrDisconnected(num) {
       let player = `.p${parseInt(num) + 1}`;
@@ -286,6 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else return;
 
     displayGrid.removeChild(draggedShip);
+    if(!displayGrid.querySelector('.ship')) allShipsPlaced = true
   }
 
   function dragEnd() {
