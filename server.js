@@ -57,5 +57,15 @@ io.on('connection', socket => {
     socket.broadcast.emit('enemy-ready', playerIndex)
     connections[playerIndex] = true
   })
+
+  // Check player connections
+  socket.on('check-players', () => {
+    const players = []
+    for (const i in connections) {
+      connections[i] === null ? players.push({connected: false, ready: false}) :
+      players.push({connected: true, ready: connections[i]})
+    }
+    socket.emit('check-players', players)
+  })
 })
 
