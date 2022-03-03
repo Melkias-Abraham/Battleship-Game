@@ -311,7 +311,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function playerReady(num) {
-    
+    let player = `.p${parseInt(num) + 1}`
+    document.querySelector(`${player} .ready span`).classList.toggle('green')
   }
 
   // Game logic for Single Player

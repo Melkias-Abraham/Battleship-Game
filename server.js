@@ -50,7 +50,12 @@ io.on('connection', socket => {
 
     // Tell everyone what player # DC
     socket.broadcast.emit('player-connection', playerIndex)
-  }
-  )
+  })
+
+  // On Ready
+  socket.on("player-ready", () => {
+    socket.broadcast.emit('enemy-ready', playerIndex)
+    connections[playerIndex] = true
+  })
 })
 
