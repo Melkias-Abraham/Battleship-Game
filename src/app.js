@@ -54,7 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Ready button click
     startButton.addEventListener('click', () => {
-      playGameMulti(socket) 
+      if (allShipsPlaced) playGameMulti(socket)
+      else infoDisplay.innerHTML = "Please place all ships"
     }
     )
 
@@ -299,7 +300,21 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("dragend");
   }
 
-  // Game logic
+  // Game logic for MultiPlayer
+  function playGameMulti(socket) {
+    if (isGameOver) return;
+    if (!ready) {
+      socket.emit('player-ready')
+      ready = true
+      playerReady(playerNum)
+    }
+  }
+
+  function playerReady(num) {
+    
+  }
+
+  // Game logic for Single Player
   function playGameSingle() {
     if (isGameOver) return;
     if (currentPlayer === "user") {
