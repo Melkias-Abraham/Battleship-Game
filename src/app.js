@@ -43,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (playerNum === 1) currentPlayer = "enemy";
 
         console.log(playerNum);
+
+        
       }
     });
 
@@ -57,6 +59,18 @@ document.addEventListener("DOMContentLoaded", () => {
       enemyReady = true
       playerReady(num)
       if (ready) playGameMulti(socket)
+    })
+
+    // Check player status
+
+    socket.on('check-player', players => {
+      players.forEach((p, i) => {
+        if (p.connected) playerConnectedOrDisconnected(i)
+        if (p.ready) {
+          playerReady(i)
+          if (i !== playerReady) enemyReady = true
+        }
+      })
     })
     // Ready button click
     startButton.addEventListener('click', () => {
