@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log(playerNum);
 
-        
+        socket.emit('check-players')
       }
     });
 
@@ -62,16 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     // Check player status
-
-    socket.on('check-player', players => {
+    socket.on('check-players', players => {
       players.forEach((p, i) => {
         if (p.connected) playerConnectedOrDisconnected(i)
         if (p.ready) {
           playerReady(i)
-          if (i !== playerReady) enemyReady = true
+          if (i !== playerNum) enemyReady = true
         }
       })
     })
+
     // Ready button click
     startButton.addEventListener('click', () => {
       if (allShipsPlaced) playGameMulti(socket)
