@@ -44,9 +44,9 @@ io.on('connection', socket => {
   socket.broadcast.emit('player-connection', playerIndex)
 
   // Handle Disconnect
-  socket.on('disconect', () => {
+  socket.on('disconnect', () => {
     console.log(`Player ${playerIndex} disconnected`)
-    connection[playerIndex] = null
+    connections[playerIndex] = null
 
     // Tell everyone what player # DC
     socket.broadcast.emit('player-connection', playerIndex)
