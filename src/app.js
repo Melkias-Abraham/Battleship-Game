@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Multiplayer
   let gameMode = "";
   let playerNum = 0;
+  let ready = false
   let enemyReady = false;
   let allShipsPlaced = false;
   let shotFired = -1;
