@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log(playerNum);
 
+        // Will get other players status
         socket.emit('check-players')
       }
     });
