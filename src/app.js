@@ -90,6 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
 
+    // On fire Recieved
+    socket.on('fire', id => {
+      enemyTurn(id)
+      const square = userSquares[id]
+      socket.emit('fire-reply', square.classList)
+      playGameMulti(socket)
+    })
+
     function playerConnectedOrDisconnected(num) {
       let player = `.p${parseInt(num) + 1}`;
       document
