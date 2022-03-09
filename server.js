@@ -71,6 +71,9 @@ io.on('connection', socket => {
   // On fire received
   socket.on('fire', id => {
     console.log(`Shot fired from ${playerIndex}`, id)
+
+    // Emit the move to the other player
+    socket.broadcast.emit('fire', id)
   })
 })
 
