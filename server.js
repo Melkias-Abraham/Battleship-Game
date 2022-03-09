@@ -67,5 +67,10 @@ io.on('connection', socket => {
     }
     socket.emit('check-players', players)
   })
+
+  // On fire received
+  socket.on('fire', id => {
+    console.log(`Shot fired from ${playerIndex}`, id)
+  })
 })
 
