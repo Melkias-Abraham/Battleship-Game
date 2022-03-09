@@ -344,7 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (currentPlayer = 'user') {
         turnDisplay.innerHTML = 'Your Turn'
       }
-      if (currentPLayer === 'enemy') {
+      if (currentPlayer === 'enemy') {
         turnDisplay.innerHTML = "Enemy's Turn"
       }
     }
