@@ -376,12 +376,12 @@ document.addEventListener("DOMContentLoaded", () => {
       turnDisplay.innerHTML = "Your Turn";
       computerSquares.forEach((square) =>
         square.addEventListener("click", function (e) {
-          revealSquare(square);
+          revealSquare(square.classList);
         })
       );
     }
 
-    if (currentPlayer === "computer") {
+    if (currentPlayer === "enemy") {
       turnDisplay.innerHTML = "CPU turn";
       setTimeout(enemyTurn, 1000);
     }
@@ -393,23 +393,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let battleshipCount = 0;
   let carrierCount = 0;
 
-  function revealSquare(square) {
-    if (!square.classList.contains("boom")) {
-      if (square.classList.contains("destroyer")) destroyerCount++;
-      if (square.classList.contains("submarine")) submarineCount++;
-      if (square.classList.contains("cruiser")) cruiserCount++;
-      if (square.classList.contains("battleship")) battleshipCount++;
-      if (square.classList.contains("carrier")) carrierCount++;
+  function revealSquare(classList) {
+    const enemySquare = computerGrid.querySelector(`div[data-id = ${shotFired}]`)
+    const obj = Object.values(classList)
+    if (!enemySquare.classList.contains("boom") && currentPlayer === 'user' && !isGameOver) {
+      if (obj.contains("destroyer")) destroyerCount++;
+      if (obj.contains("submarine")) submarineCount++;
+      if (obj.contains("cruiser")) cruiserCount++;
+      if (obj.contains("battleship")) battleshipCount++;
+      if (obj.contains("carrier")) carrierCount++;
     }
 
-    if (square.classList.contains("taken")) {
-      square.classList.add("boom");
+    if (obj.contains("taken")) {
+      enemySquare.classList.add("boom");
     } else {
-      square.classList.add("miss");
+      enemySquare.classList.add("miss");
     }
     checkForWins();
-    currentPlayer = "computer";
-    playGameSingle();
+    currentPlayer = "enemy";
+    if (gameMode === 'singlePlayer') playGameSingle();
   }
 
   let cpuDestroyerCount = 0;
