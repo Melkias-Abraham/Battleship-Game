@@ -319,26 +319,16 @@ document.addEventListener("DOMContentLoaded", () => {
       63, 62, 61,
     ];
 
-    let newNotAllowedHorizonal = notAllowedHorizontal.splice(
-      0,
-      10 * lastShipIndex
-    );
-    let newNotAllowedVertical = notAllowedVertical.splice(
-      0,
-      10 * lastShipIndex
-    );
+    let newNotAllowedHorizonal = notAllowedHorizontal.splice(0, 10 * lastShipIndex);
+    let newNotAllowedVertical = notAllowedVertical.splice(0, 10 * lastShipIndex);
 
     if (isHorizontal && !newNotAllowedHorizonal.includes(shipLastId)) {
       for (let i = 0; i < draggedShipLength; i++) {
-        userSquares[
-          parseInt(this.dataset.id) - selectedShipIndex + i
-        ].classList.add("taken", shipClass);
+        userSquares[parseInt(this.dataset.id) - selectedShipIndex + i].classList.add("taken", shipClass);
       }
     } else if (!isHorizontal && !newNotAllowedVertical.includes(shipLastId)) {
       for (let i = 0; i < draggedShipLength; i++) {
-        userSquares[
-          parseInt(this.dataset.id) - selectedShipIndex + width * i
-        ].classList.add("taken", shipClass);
+        userSquares[parseInt(this.dataset.id) - selectedShipIndex + width * i].classList.add("taken", shipClass);
       }
     } else return;
 
