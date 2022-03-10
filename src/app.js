@@ -444,77 +444,66 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function checkForWins() {
+    let enemy = 'computer'
+    if (gameMode === 'multiPlayer') enemy = 'enemy'
+
     if (destroyerCount === 2) {
-      infoDisplay.innerHTML = "You sunk the computers destroyer!";
+      infoDisplay.innerHTML = `You sunk the ${enemy}'s destroyer!`;
       destroyerCount = 10;
     }
 
     if (submarineCount === 3) {
-      infoDisplay.innerHTML = "You sunk the computers submarine!";
+      infoDisplay.innerHTML = `You sunk the ${enemy}'s submarine!`;
       submarineCount = 10;
     }
 
     if (cruiserCount === 3) {
-      infoDisplay.innerHTML = "You sunk the computers crusier!";
+      infoDisplay.innerHTML = `You sunk the ${enemy}'s crusier!`;
       cruiserCount = 10;
     }
 
     if (battleshipCount === 4) {
-      infoDisplay.innerHTML = "You sunk the computers battleship!";
+      infoDisplay.innerHTML = `You sunk the ${enemy}'s battleship!`;
       battleshipCount = 10;
     }
 
     if (carrierCount === 5) {
-      infoDisplay.innerHTML = "You sunk the computers carrier!";
+      infoDisplay.innerHTML = `You sunk the ${enemy}'s carrier!`;
       carrierCount = 10;
     }
 
     if (cpuDestroyerCount === 2) {
-      infoDisplay.innerHTML = "You sunk the computers destroyer!";
+      infoDisplay.innerHTML = `${enemy} sunk your destroyer!`;
       cpuDestroyerCount = 10;
     }
 
     if (cpuSubmarineCount === 3) {
-      infoDisplay.innerHTML = "You sunk the computers submarine!";
+      infoDisplay.innerHTML = `${enemy} sunk your submarine!`;
       cpuSubmarineCount = 10;
     }
 
     if (cpuCruiserCount === 3) {
-      infoDisplay.innerHTML = "You sunk the computers crusier!";
+      infoDisplay.innerHTML = `${enemy} sunk your crusier!`;
       cpuCruiserCount = 10;
     }
 
     if (cpuBattleshipCount === 4) {
-      infoDisplay.innerHTML = "You sunk the computers battleship!";
+      infoDisplay.innerHTML = `${enemy} sunk your battleship!`;
       cpuBattleshipCount = 10;
     }
 
     if (cpuCarrierCount === 5) {
-      infoDisplay.innerHTML = "You sunk the computers carrier!";
+      infoDisplay.innerHTML = `${enemy} sunk your carrier!`;
       cpuCarrierCount = 10;
     }
 
-    if (
-      destroyerCount +
-        submarineCount +
-        cruiserCount +
-        battleshipCount +
-        carrierCount ===
-      50
-    ) {
-      infoDisplay.innerHTML = "CPU Wins!";
+    if (destroyerCount + submarineCount + cruiserCount + battleshipCount + carrierCount === 50) {
+      infoDisplay.innerHTML = `${enemy.toUpperCase()} WINS!`;
       gameOver();
     }
 
-    if (
-      cpuDestroyerCount +
-        cpuSubmarineCount +
-        cpuCruiserCount +
-        cpuBattleshipCount +
-        cpuCarrierCount ===
-      50
-    ) {
-      infoDisplay.innerHTML = "You Win!";
+    if (cpuDestroyerCount + cpuSubmarineCount + cpuCruiserCount + cpuBattleshipCount + cpuCarrierCount === 50) {
+      infoDisplay.innerHTML = "YOU WIN!";
       gameOver();
     }
   }
