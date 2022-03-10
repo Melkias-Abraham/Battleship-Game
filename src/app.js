@@ -90,11 +90,17 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
 
-    // On fire Recieved
+    // On fire recieved
     socket.on('fire', id => {
       enemyTurn(id)
       const square = userSquares[id]
       socket.emit('fire-reply', square.classList)
+      playGameMulti(socket)
+    })
+
+    // on recieving a fire-reply
+    socket.on('fire-reply', classList => {
+      revealSquare(classList)
       playGameMulti(socket)
     })
 

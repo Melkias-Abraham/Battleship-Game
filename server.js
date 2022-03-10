@@ -75,5 +75,13 @@ io.on('connection', socket => {
     // Emit the move to the other player
     socket.broadcast.emit('fire', id)
   })
+
+  // On Fire Reply 
+  socket.on('fire-reply', square => {
+    console.log(square)
+
+    // Forward the reply to the other player
+    socket.broadcast.emit('fire-reply', square)
+  })
 })
 
