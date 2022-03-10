@@ -412,21 +412,20 @@ document.addEventListener("DOMContentLoaded", () => {
   let cpuBattleshipCount = 0;
   let cpuCarrierCount = 0;
 
-  function enemyTurn() {
-    let random = Math.floor(Math.random() * userSquares.length);
-
-    if (!userSquares[random].classList.contains("boom")) {
-      userSquares[random].classList.add("boom");
-      if (userSquares[random].classList.contains("destroyer"))
+  function enemyTurn(square) {
+    if (gameMode === 'singlePlayer') square = Math.floor(Math.random() * userSquares.length);
+    if (!userSquares[square].classList.contains("boom")) {
+      userSquares[square].classList.add("boom");
+      if (userSquares[square].classList.contains("destroyer"))
         cpuDestroyerCount++;
-      if (userSquares[random].classList.contains("submarine"))
+      if (userSquares[square].classList.contains("submarine"))
         cpuSubmarineCount++;
-      if (userSquares[random].classList.contains("cruiser")) cpuCruiserCount++;
-      if (userSquares[random].classList.contains("battleship"))
+      if (userSquares[square].classList.contains("cruiser")) cpuCruiserCount++;
+      if (userSquares[square].classList.contains("battleship"))
         cpuBattleshipCount++;
-      if (userSquares[random].classList.contains("carrier")) cpuCarrierCount++;
+      if (userSquares[square].classList.contains("carrier")) cpuCarrierCount++;
       checkForWins();
-    } else enemyTurn();
+    } else if (gameMode === 'singlePlayer') enemyTurn();
     currentPlayer = "user";
     turnDisplay.innerHTML = "Your Turn";
   }
