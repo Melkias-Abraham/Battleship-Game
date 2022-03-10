@@ -74,6 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
 
+    // On timeout 
+    socket.on('timeout', () => {
+      infoDisplay.innerHTML = 'You have reached the 10 minute limit'
+    })
+
     // Ready button click
     startButton.addEventListener('click', () => {
       if (allShipsPlaced) playGameMulti(socket)
@@ -98,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
       playGameMulti(socket)
     })
 
-    // on recieving a fire-reply
+    // On recieving a fire-reply
     socket.on('fire-reply', classList => {
       revealSquare(classList)
       playGameMulti(socket)
@@ -394,17 +399,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let carrierCount = 0;
 
   function revealSquare(classList) {
-    const enemySquare = computerGrid.querySelector(`div[data-id = ${shotFired}]`)
+    const enemySquare = computerGrid.querySelector(`div[data-id = "${shotFired}"]`)
     const obj = Object.values(classList)
     if (!enemySquare.classList.contains("boom") && currentPlayer === 'user' && !isGameOver) {
-      if (obj.contains("destroyer")) destroyerCount++;
-      if (obj.contains("submarine")) submarineCount++;
-      if (obj.contains("cruiser")) cruiserCount++;
-      if (obj.contains("battleship")) battleshipCount++;
-      if (obj.contains("carrier")) carrierCount++;
+      if (obj.includes("destroyer")) destroyerCount++;
+      if (obj.includes("submarine")) submarineCount++;
+      if (obj.includes("cruiser")) cruiserCount++;
+      if (obj.includes("battleship")) battleshipCount++;
+      if (obj.includes("carrier")) carrierCount++;
     }
 
-    if (obj.contains("taken")) {
+    if (obj.includes("taken")) {
       enemySquare.classList.add("boom");
     } else {
       enemySquare.classList.add("miss");
