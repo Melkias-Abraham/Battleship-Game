@@ -377,7 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (currentPlayer === "computer") {
       turnDisplay.innerHTML = "CPU turn";
-      setTimeout(computerTurn, 1000);
+      setTimeout(enemyTurn, 1000);
     }
   }
 
@@ -412,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let cpuBattleshipCount = 0;
   let cpuCarrierCount = 0;
 
-  function computerTurn() {
+  function enemyTurn() {
     let random = Math.floor(Math.random() * userSquares.length);
 
     if (!userSquares[random].classList.contains("boom")) {
@@ -426,7 +426,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cpuBattleshipCount++;
       if (userSquares[random].classList.contains("carrier")) cpuCarrierCount++;
       checkForWins();
-    } else computerTurn();
+    } else enemyTurn();
     currentPlayer = "user";
     turnDisplay.innerHTML = "Your Turn";
   }
