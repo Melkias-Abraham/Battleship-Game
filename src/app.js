@@ -469,12 +469,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (destroyerCount + submarineCount + cruiserCount + battleshipCount + carrierCount === 50) {
-      infoDisplay.innerHTML = `${enemy.toUpperCase()} WINS!`;
+      infoDisplay.innerHTML = "YOU WIN";
       gameOver();
     }
 
     if (cpuDestroyerCount + cpuSubmarineCount + cpuCruiserCount + cpuBattleshipCount + cpuCarrierCount === 50) {
-      infoDisplay.innerHTML = "YOU WIN!";
+      infoDisplay.innerHTML = `${enemy.toUpperCase()} WINS!`;
       gameOver();
     }
   }
