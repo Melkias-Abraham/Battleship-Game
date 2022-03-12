@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const carrier = document.querySelector(".carrier-container");
 
   let isGameOver = false;
-  let currentPlayer = "user";
+  let currentPlayer = 'user';
   const startButton = document.querySelector("#start");
   const rotateButton = document.querySelector("#rotate");
   const turnDisplay = document.querySelector("#whose-turn");
@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (enemyReady) {
-      if (currentPlayer = 'user') {
+      if (currentPlayer === 'user') {
         turnDisplay.innerHTML = 'Your Turn'
       }
       if (currentPlayer === 'enemy') {
@@ -347,7 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Game logic for Single Player
   function playGameSingle() {
     if (isGameOver) return;
-    if (currentPlayer === "user") {
+    if (currentPlayer === 'user') {
       turnDisplay.innerHTML = "Your Turn";
       computerSquares.forEach((square) =>
         square.addEventListener("click", function (e) {
@@ -400,17 +400,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (gameMode === 'singlePlayer') square = Math.floor(Math.random() * userSquares.length);
     if (!userSquares[square].classList.contains("boom")) {
       userSquares[square].classList.add("boom");
-      if (userSquares[square].classList.contains("destroyer"))
-        cpuDestroyerCount++;
-      if (userSquares[square].classList.contains("submarine"))
-        cpuSubmarineCount++;
+      if (userSquares[square].classList.contains("destroyer")) cpuDestroyerCount++;
+      if (userSquares[square].classList.contains("submarine")) cpuSubmarineCount++;
       if (userSquares[square].classList.contains("cruiser")) cpuCruiserCount++;
-      if (userSquares[square].classList.contains("battleship"))
-        cpuBattleshipCount++;
+      if (userSquares[square].classList.contains("battleship")) cpuBattleshipCount++;
       if (userSquares[square].classList.contains("carrier")) cpuCarrierCount++;
       checkForWins();
     } else if (gameMode === 'singlePlayer') enemyTurn();
-    currentPlayer = "user";
+    currentPlayer = 'user';
     turnDisplay.innerHTML = "Your Turn";
   }
 
