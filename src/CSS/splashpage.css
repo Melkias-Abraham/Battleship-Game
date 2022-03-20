@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  background-color: #F3f3f3;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 66vh;
+}
+
+.splash-title {
+  font-family: 'Bangers', cursive;
+  font-size: 10rem;
+}
+
+.btn {
+  background-color: hsl(30, 100%, 50%);
+  padding: .5em 1em;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: .2em;
+}
+
+.splash-btn {
+  font-size: 2rem;
+  margin-left: 2em;
+}
+
+.splash-btn:first-child {
+  margin-left: 0;
+}
+
+.container {
+  display:flex
+}
