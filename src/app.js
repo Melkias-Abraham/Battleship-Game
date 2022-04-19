@@ -15,11 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const rotateButton = document.querySelector("#rotate");
   const turnDisplay = document.querySelector("#whose-turn");
   const infoDisplay = document.querySelector("#game-info");
-  const singlePlayerButton = document.querySelector("#singlePlayerButton");
-  const multiPlayerButton = document.querySelector("#multiPlayerButton");
+
 
   // Multiplayer
-  let gameMode = "";
   let playerNum = 0;
   let ready = false
   let enemyReady = false;
@@ -27,12 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let shotFired = -1;
 
   // Select Player mode
-  singlePlayerButton.addEventListener("click", startSinglePlayer);
-  multiPlayerButton.addEventListener("click", startMultiPlayer);
+  if (gameMode === 'singlePlayer') {
+    startSinglePlayer()
+  } else {
+    startMultiPlayer()
+  }
 
   function startMultiPlayer() {
-    gameMode = "multiPlayer";
-
     const socket = io();
 
     // Get your player #
@@ -118,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Single Player
   function startSinglePlayer() {
-    gameMode = "singlePlayer";
 
     generate(shipArray[0]);
     generate(shipArray[1]);
