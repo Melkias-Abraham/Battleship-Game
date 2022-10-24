@@ -22,6 +22,50 @@ document.addEventListener("DOMContentLoaded", () => {
   let enemyReady = false;
   let allShipsPlaced = false;
   let shotFired = -1;
+
+  // Creating the board
+  const userSquares = [];
+  const computerSquares = [];
+  const width = 10;
+  
+  // Ships
+  const shipArray = [
+    {
+      name: "destroyer",
+      directions: [
+        [0, 1],
+        [0, width],
+      ],
+    },
+    {
+      name: "submarine",
+      directions: [
+        [0, 1, 2],
+        [0, width, width * 2],
+      ],
+    },
+    {
+      name: "cruiser",
+      directions: [
+        [0, 1, 2],
+        [0, width, width * 2],
+      ],
+    },
+    {
+      name: "battleship",
+      directions: [
+        [0, 1, 2, 3],
+        [0, width, width * 2, width * 3],
+      ],
+    },
+    {
+      name: "carrier",
+      directions: [
+        [0, 1, 2, 3, 4],
+        [0, width, width * 2, width * 3, width * 4],
+      ],
+    },
+  ];
   
   // Select Player mode
   if (gameMode === 'singlePlayer') {
@@ -129,10 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ship alignment
   let isHorizontal = true;
 
-  // Creating the board
-  const userSquares = [];
-  const computerSquares = [];
-  const width = 10;
 
   function createBoard(grid, squares, width) {
     for (let i = 0; i < width * width; i++) {
@@ -145,44 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   createBoard(userGrid, userSquares, width);
   createBoard(computerGrid, computerSquares, width);
-
-  const shipArray = [
-    {
-      name: "destroyer",
-      directions: [
-        [0, 1],
-        [0, width],
-      ],
-    },
-    {
-      name: "submarine",
-      directions: [
-        [0, 1, 2],
-        [0, width, width * 2],
-      ],
-    },
-    {
-      name: "cruiser",
-      directions: [
-        [0, 1, 2],
-        [0, width, width * 2],
-      ],
-    },
-    {
-      name: "battleship",
-      directions: [
-        [0, 1, 2, 3],
-        [0, width, width * 2, width * 3],
-      ],
-    },
-    {
-      name: "carrier",
-      directions: [
-        [0, 1, 2, 3, 4],
-        [0, width, width * 2, width * 3, width * 4],
-      ],
-    },
-  ];
 
   function generate(ship) {
     let randomDirection = Math.floor(Math.random() * ship.directions.length);
