@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const cruiser = document.querySelector(".cruiser-container");
   const battleship = document.querySelector(".battleship-container");
   const carrier = document.querySelector(".carrier-container");
-
   let isGameOver = false;
   let currentPlayer = 'user';
   const startButton = document.querySelector("#start");
@@ -16,14 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const turnDisplay = document.querySelector("#whose-turn");
   const infoDisplay = document.querySelector("#game-info");
 
-
+  
   // Multiplayer
   let playerNum = 0;
   let ready = false
   let enemyReady = false;
   let allShipsPlaced = false;
   let shotFired = -1;
-
+  
   // Select Player mode
   if (gameMode === 'singlePlayer') {
     startSinglePlayer()
