@@ -18,13 +18,10 @@
   border: 1px solid hsla(0, 0%, 100%, .2)
 }
 
-
 .grid-display {
   display: flex;
 }
  
-
-
 .connected, .ready {
   font-weight: normal;
 
