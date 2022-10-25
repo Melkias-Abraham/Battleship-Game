@@ -186,9 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  createBoard(userGrid, userSquares, width);
-  createBoard(computerGrid, computerSquares, width);
-
   function generate(ship) {
     let randomDirection = Math.floor(Math.random() * ship.directions.length);
     let current = ship.directions[randomDirection];
