@@ -20,11 +20,10 @@
 
 
 .grid-display {
-  height: 400px;
-  width: 400px;
-  margin: 20px;
-  background-color: yellow;
+  display: flex;
 }
+ 
+
 
 .connected, .ready {
   font-weight: normal;

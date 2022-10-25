@@ -1,26 +1,36 @@
 
-.destroyer-container {
-  width: 80px;
-  height: 40px;
-  margin: 10px;
-  background-color: violet;
+.taken,
+ .ship {
+  background-color: hsl(0, 0%, 80%);
+}
+
+.ship > div {
+  width: 4.6vmin;
+  height: 4.6vmin;
+}
+
+.ship {
   display: flex;
+  flex-wrap: wrap;
+  margin: 1vmin;
+  width: calc(4.6vmin * var(--width, 1));
+  height: calc(4.6vmin * var(--height, 1));
+  border-radius: 2.3vmin;
+}
+
+.destroyer-container {
+ --width: 2;
 }
 
 .destroyer-container-vertical {
-  width: 40px;
-  height: 80px;
-  margin: 10px;
-  background-color: violet;
-  display: flex;
-  flex-wrap: wrap;
+  width: 1;
+  height: 2;
 }
 
 .submarine-container {
   width: 120px;
   height: 40px;
   margin: 10px;
-  background-color: lightgoldenrodyellow;
   display: flex;
 }
 
@@ -28,7 +38,6 @@
   width: 40px;
   height: 120px;
   margin: 10px;
-  background-color: lightgoldenrodyellow;
   display: flex;
   flex-wrap: wrap;
 }
@@ -37,7 +46,6 @@
   width: 120px;
   height: 40px;
   margin: 10px;
-  background-color: teal;
   display: flex;
 }
 
@@ -45,7 +53,6 @@
   width: 40px;
   height: 120px;
   margin: 10px;
-  background-color: teal;
   display: flex;
   flex-wrap: wrap;
 }
@@ -54,7 +61,6 @@
   width: 160px;
   height: 40px;
   margin: 10px;
-  background-color: palevioletred;
   display: flex;
 }
 
@@ -62,7 +68,6 @@
   width: 40px;
   height: 160px;
   margin: 10px;
-  background-color: palevioletred;
   display: flex;
   flex-wrap: wrap;
 }
@@ -71,7 +76,6 @@
   width: 200px;
   height: 40px;
   margin: 10px;
-  background-color: green;
   display: flex;
 }
 
@@ -79,7 +83,6 @@
   width: 40px;
   height: 200px;
   margin: 10px;
-  background-color: green;
   display: flex;
   flex-wrap: wrap;
 }
@@ -89,25 +92,6 @@
   height: 40px;
 }
 
-.destroyer {
-  background-color:violet;
-}
-
-.cruiser {
-  background-color: teal;
-}
-
-.battleship {
-  background-color:  palevioletred;
-}
-
-.submarine {
-  background-color: lightgoldenrodyellow;
-}
-
-.carrier {
-  background-color: green;
-}
 
 .boom {
   background-color: red;
