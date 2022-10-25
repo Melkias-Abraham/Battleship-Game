@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const userSquares = [];
   const computerSquares = [];
   const width = 10;
-  
+
   // Ships
   const shipArray = [
     {
@@ -66,6 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
     },
   ];
+
+  createBoard(userGrid, userSquares, width);
+  createBoard(computerGrid, computerSquares, width);
   
   // Select Player mode
   if (gameMode === 'singlePlayer') {
