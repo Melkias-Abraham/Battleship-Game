@@ -13,6 +13,11 @@
   grid-template-columns: repeat(10, 4.6vmin);
 }
 
+.grid-computer> .taken {
+  background-color: hsl(200, 100%, 50%) !important;
+  border-radius: 0 !important;
+}
+
 
 .battleship-grid div {
   border: 1px solid hsla(0, 0%, 100%, .2)
