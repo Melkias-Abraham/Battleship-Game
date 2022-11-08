@@ -8,6 +8,26 @@
   height: 4.6vmin;
 }
 
+.taken.start.vertical {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.taken.end.vertical {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.taken.start.horizontal {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.taken.start.horizontal {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
 .ship {
   display: flex;
   flex-wrap: wrap;
