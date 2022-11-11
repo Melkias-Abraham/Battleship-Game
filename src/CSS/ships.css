@@ -9,22 +9,26 @@
   height: 4.6vmin;
 }
 
-.taken.start.vertical {
+.taken.start.vertical,
+.taken.start.vertical::before {
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
 }
 
-.taken.end.vertical {
+.taken.end.vertical,
+.taken.end.vertical::before {
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
 }
 
-.taken.start.horizontal {
+.taken.start.horizontal,
+.taken.start.horizontal::before {
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
 }
 
-.taken.end.horizontal {
+.taken.end.horizontal,
+.taken.end.horizontal::before {
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
 }
