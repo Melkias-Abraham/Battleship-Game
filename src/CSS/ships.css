@@ -59,20 +59,24 @@
 @keyframes ripplesY {
   0% {
     opacity: 1;
+    transform: scaleY(1);
   }
 
   100% {
     opacity: 0;
+    transform: scaleY(2);
   }
 }
 
 @keyframes ripplesX {
   0% {
     opacity: 1;
+    transform: scaleX(1);
   }
 
   100% {
     opacity: 0;
+    transform: scaleX(2);
   }
 }
 
