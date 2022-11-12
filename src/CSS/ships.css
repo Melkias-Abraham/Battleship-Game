@@ -47,11 +47,33 @@
 .taken.horizontal::before {
   border-left: 0;
   border-right: 0;
+  animation: ripplesY 3s linear infinite;
 }
 
 .taken.taken.vertical::before {
   border-top: 0;
   border-bottom: 0;
+  animation: ripplesX 3s linear infinite;
+}
+
+@keyframes ripplesY {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes ripplesX {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 
