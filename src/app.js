@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cruiser = document.querySelector(".cruiser-container");
   const battleship = document.querySelector(".battleship-container");
   const carrier = document.querySelector(".carrier-container");
-  const setupButtons = document.getElementById("setup-buttons")
+  const setupButtons = document.getElementById("setup-buttons");
   let isGameOver = false;
   let currentPlayer = 'user';
   const startButton = document.querySelector("#start");
@@ -106,7 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
     socket.on('enemy-ready', num => {
       enemyReady = true
       playerReady(num)
-      if (ready) playGameMulti(socket)
+      if (ready) {
+        playGameMulti(socket)
+        setupButtons.style.display = 'none';
+      }
     })
 
     // Check player status
@@ -409,7 +412,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function enemyTurn(square) {
     if (gameMode === 'singlePlayer') square = Math.floor(Math.random() * userSquares.length);
     if (!userSquares[square].classList.contains("boom")) {
-      userSquares[square].classList.add("boom");
+      const hit = userSquares[square].classList.contains('taken')
+      userSquares[square].classList.add(hit ? "boom" : "miss");
       if (userSquares[square].classList.contains("destroyer")) cpuDestroyerCount++;
       if (userSquares[square].classList.contains("submarine")) cpuSubmarineCount++;
       if (userSquares[square].classList.contains("cruiser")) cpuCruiserCount++;
