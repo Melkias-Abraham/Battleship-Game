@@ -61,9 +61,13 @@
   display: flex;
 }
  
+.player {
+  margin: 2vmin;
+}
 .connected, .ready {
   font-weight: normal;
-
+  opacity: .25;
+  text-decoration: line-through;
 }
 
 .connected span, 
