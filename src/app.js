@@ -335,6 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Game logic for MultiPlayer
   function playGameMulti(socket) {
+    setupButtons.style.display = 'none';
     if (isGameOver) return;
     if (!ready) {
       socket.emit('player-ready')
