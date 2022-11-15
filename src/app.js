@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cruiser = document.querySelector(".cruiser-container");
   const battleship = document.querySelector(".battleship-container");
   const carrier = document.querySelector(".carrier-container");
+  const setupButtons = document.getElementById("setup-buttons")
   let isGameOver = false;
   let currentPlayer = 'user';
   const startButton = document.querySelector("#start");
@@ -170,8 +171,12 @@ document.addEventListener("DOMContentLoaded", () => {
     generate(shipArray[3]);
     generate(shipArray[4]);
 
-    startButton.addEventListener("click", playGameSingle);
+    startButton.addEventListener( "click", () => {
+      setupButtons.style.display = 'none';
+      playGameSingle();
+    })
   }
+  
 
   // ship alignment
   let isHorizontal = true;
